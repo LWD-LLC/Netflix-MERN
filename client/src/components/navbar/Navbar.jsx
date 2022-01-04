@@ -1,5 +1,6 @@
 import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./navbar.scss";
 
 const Navbar = () => {
@@ -18,7 +19,9 @@ const Navbar = () => {
             alt=""
           />
           <span>Homepage</span>
+          <Link>
           <span>Series</span>
+          </Link>
           <span>Movies</span>
           <span>New and Popular</span>
           <span>My List</span>
