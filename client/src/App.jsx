@@ -1,18 +1,27 @@
 import Home from "./pages/home/Home";
 import "./app.scss"
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Watch from "./pages/watch/Watch";
+import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
 
 const App = () => {
+  const user = true;
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/" element={<Home type="movies"/>} />
-        <Route exact path="/" element={<Home type="series"/>} />
-        <Route exact path="/watch" element={<Watch />} />
+        <Route path="/" element={user ? <Home /> : <Register />} />
+        <Route path="/register" element={!user ? <Register /> : <Home />} />
+        <Route path="/login" element={!user ? <Login /> : <Home />} />
+        {user && (
+          <>
+            <Route path="/movies" element={<Home type="movies" />} />
+            <Route path="/series" element={<Home type="series" />} />
+            <Route path="/watch" element={<Watch />} />
+          </>
+        )}
       </Routes>
-    </Router>
+    </BrowserRouter>
   )
 };
 
