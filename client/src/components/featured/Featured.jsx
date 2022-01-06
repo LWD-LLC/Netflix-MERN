@@ -1,11 +1,10 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import "./featured.scss";
 
-export default function Featured({ type }) {
-  const [content, setContent] = useState({})
+export default function Featured({ type, setGenre }) {
+  const [content, setContent] = useState({});
 
   useEffect(() => {
     const getRandomContent = async () => {
@@ -13,23 +12,28 @@ export default function Featured({ type }) {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZDU5MTU4ZDY5NzIxMjhiMzBkYWQ5ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MTM4NjQzNywiZXhwIjoxNjQxODE4NDM3fQ.B7td_hyAhX8-5Ll11W1SVEKz_QztdDZcvw5AX_pgZSk",
+              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
-        setContent(res.data)
+        setContent(res.data[0]);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     };
     getRandomContent();
-  }, [type])
+  }, [type]);
 
+  console.log(content);
   return (
     <div className="featured">
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre">
+          <select
+            name="genre"
+            id="genre"
+            onChange={(e) => setGenre(e.target.value)}
+          >
             <option>Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>
@@ -47,18 +51,10 @@ export default function Featured({ type }) {
           </select>
         </div>
       )}
-      <img
-        src={content.img}
-        alt=""
-      />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRmpGvUZ1g2axOD5OAsGUAjk409HZqzbbV6Q&usqp=CAU" alt="" />
       <div className="info">
-        <img
-          src={content.imgTitle}
-          alt=""
-        />
-        <span className="desc">
-          {content.desc}
-        </span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRmpGvUZ1g2axOD5OAsGUAjk409HZqzbbV6Q&usqp=CAU" alt="" />
+        <span className="desc">Test</span>
         <div className="buttons">
           <button className="play">
             <PlayArrow />
