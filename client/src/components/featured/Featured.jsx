@@ -51,10 +51,10 @@ export default function Featured({ type, setGenre }) {
           </select>
         </div>
       )}
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRmpGvUZ1g2axOD5OAsGUAjk409HZqzbbV6Q&usqp=CAU" alt="" />
+      <img src="https://occ-0-2120-2119.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABWo6PvYPwTzE4ljHUN6yjTrEzxNIfRnS2T-nH8ZLOHzI5OfA45VhUDL--zpXODlOppfJjbRpnCIGlEA0aRNxl7DCH_tt.webp?r=2bc"/>
       <div className="info">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRmpGvUZ1g2axOD5OAsGUAjk409HZqzbbV6Q&usqp=CAU" alt="" />
-        <span className="desc">Test</span>
+        <img src="https://occ-0-2120-2119.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABSFeQCtbOqBC5QosQhyd-aAWQPBT48h-ZHOHwCAapoa30R7-v8u1zr0qm4OUxhyoBNc0unBgdJlivVm5Rc4yorcq0iu5xA6gBIvk_MrvV_Cn-kHSr2SYlSSPPmHfhQ_adt0R3FT4Ckp1v22A5SyN6zU4XEs99KPP_iIVCZvYsLQ9Gw.webp?r=63f" alt="" />
+        <span className="desc">Decades after the tournament that changed their lives, the rivalry between Johnny and Daniel reignites in theis sequel to the "Karate Kid" films.</span>
         <div className="buttons">
           <button className="play">
             <PlayArrow />
